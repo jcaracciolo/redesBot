@@ -11,7 +11,7 @@ from telebot import types
 import redis
 import logging
 
-API_TOKEN = '494695462:AAGcy3v-4V3haIWQBWs8gxPPJk_pw9322jM'
+API_TOKEN = '613516960:AAFw5oWewRPeucTgRxHXhF7ZMnbdbUJ8Z7w'
 WEBHOOK_URL_PATH = "/%s/" % (API_TOKEN)
 
 logger = telebot.logger
