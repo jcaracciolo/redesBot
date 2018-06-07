@@ -169,7 +169,7 @@ def send_welcome(message):
         if s.lower() == "done":
             text += i + ") " + e + "\t - " + s + "\n"
     bot.send_message(chat_id=message.chat.id,
-                 text="Tu lista de cosas por hacer es: \n" + text)
+                 text="Tu lista de cosas que terminaste es: \n" + text)
 
 
 
